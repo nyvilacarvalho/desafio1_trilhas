@@ -1,4 +1,13 @@
-valor_compra = float(input("Digite o valor da compra (R$): "))
+print("Para encerrar o progama, pro favor digite 0 (zero)")
+
+while True:
+ valor_compra = float(input("Digite o valor da compra (R$): "))
+ while valor_compra < 0:
+    print("O valor que vc digital é negativo, por favor, tente novamente")
+    valor_compra = float(input("Digite o valor da compra (R$): "))
+
+    if valor_compra == 0:
+       break
 
 idade_cliente = int(input("Digite a idade do cliente: "))
 
