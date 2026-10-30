@@ -10,8 +10,8 @@ Este programa simula um PDV (Ponto de Venda) de uma loja. Ele registra várias c
 2. Entra em um loop `while True` e pede o **valor da compra**. Se o valor for negativo, exibe um aviso e pede de novo.
 3. Se o valor digitado for `0`, o loop é encerrado com `break`.
 4. Pede a **idade do cliente**. Se for negativa, exibe um aviso e pede de novo.
-5. Começa com `preco_final` igual ao valor da compra. Se a idade for maior ou igual a 65, aplica 20% de desconto (`* 0.80`).
-6. Depois verifica se o valor **já descontado pela idade** é maior que 100. Se for, aplica mais 10% de desconto sobre esse valor (`* 0.90`).
+5. Começa com `preco_final` igual ao valor da compra. Se a idade for maior ou igual a 65, aplica 20% de desconto.
+6. Depois verifica se o valor **já descontado pela idade** é maior que 100. Se for, aplica mais 10% de desconto sobre esse valor.
 7. Exibe o valor a pagar com duas casas decimais (exemplo: `R$ 144.00`).
 8. Guarda a compra na lista com `.append()`, no formato `(valor_bruto, valor_final)`.
 9. Volta ao passo 2 para a próxima compra.
