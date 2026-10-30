@@ -1,3 +1,4 @@
+historico = []
 print("Para encerrar o progama, pro favor digite 0 (zero)")
 
 # inicio do loop
@@ -28,5 +29,20 @@ while True:
   print(f"o valor a pagar é: R${preco_final}")
 
 
-print(f"Valor da compra: R$ {valor_compra:.2f}")
-print(f"Idade do cliente: {idade_cliente} anos")
+    # Guarda no histórico
+  historico.append((valor_compra, preco_final))
+
+# Resumo do dia
+total_bruto = 0
+total_final = 0
+for bruto, final in historico:
+    total_bruto += bruto
+    total_final += final
+
+total_descontos = total_bruto - total_final
+
+print("\n=== RESUMO DO DIA ===")
+print(f"Quantidade de compras: {len(historico)}")
+print(f"Total bruto:           R$ {total_bruto:.2f}")
+print(f"Total de descontos:    R$ {total_descontos:.2f}")
+print(f"Total final:           R$ {total_final:.2f}")
