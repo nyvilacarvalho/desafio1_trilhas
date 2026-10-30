@@ -1,0 +1,17 @@
+-----RESUMO DO DIA-----Compras:
+Compra 1: bruto R$ 50.00 -> final R$ 50.00
+Compra 2: bruto R$ 100.00 -> final R$ 100.00
+Compra 3: bruto R$ 80.00 -> final R$ 64.00
+Compra 4: bruto R$ 100.00 -> final R$ 80.00
+Compra 5: bruto R$ 125.00 -> final R$ 100.00
+Compra 6: bruto R$ 200.00 -> final R$ 144.00
+Compra 7: bruto R$ 200.00 -> final R$ 180.00
+Compra 8: bruto R$ 101.00 -> final R$ 90.90
+Compra 9: bruto R$ 200.00 -> final R$ 144.00
+Compra 10: bruto R$ 1000.00 -> final R$ 720.00
+Compra 11: bruto R$ 200.00 -> final R$ 180.00
+
+Quantidade de compras: 11
+Total bruto:           R$ 2356.00
+Total de descontos:    R$ 503.10
+Total final:           R$ 1852.90

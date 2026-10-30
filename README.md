@@ -6,16 +6,22 @@ Este programa simula um PDV (Ponto de Venda) de uma loja. Ele registra várias c
 
 ## Como ele faz
 
-1. O código cria uma lista vazia (`historico`) para guardar as compras do dia.
-2. Entra em um loop `while True` e pede o **valor da compra**. Se o valor for negativo, exibe um aviso e pede de novo.
+1. Cria uma lista vazia (`historico`) para guardar as compras do dia.
+2. Entra em um loop `while True` e pede o **valor da compra**. Se for negativo, avisa e pede de novo.
 3. Se o valor digitado for `0`, o loop é encerrado com `break`.
-4. Pede a **idade do cliente**. Se for negativa, exibe um aviso e pede de novo.
-5. Começa com `preco_final` igual ao valor da compra. Se a idade for maior ou igual a 65, aplica 20% de desconto.
-6. Depois verifica se o valor **já descontado pela idade** é maior que 100. Se for, aplica mais 10% de desconto sobre esse valor.
-7. Exibe o valor a pagar com duas casas decimais (exemplo: `R$ 144.00`).
-8. Guarda a compra na lista com `.append()`, no formato `(valor_bruto, valor_final)`.
-9. Volta ao passo 2 para a próxima compra.
-10. Ao sair do loop, percorre a lista com um `for`, soma os valores brutos e os valores finais, calcula o total de descontos (`total_bruto - total_final`) e mostra o resumo do dia.
+4. Pede a **idade do cliente**. Se for negativa, avisa e pede de novo.
+5. Pede a **quantidade de itens**. Se for menor que 1, avisa e pede de novo.
+6. Pede o **cupom** (o operador pode apertar Enter para pular).
+7. Começa com `preco_final` igual ao valor da compra e aplica os descontos em sequência:
+  • Idade maior ou igual a 65: 20% de desconto.
+  • Valor já descontado pela idade maior que 100: 10% extra.
+  • Quantidade de itens maior que 3: 5% extra (bônus).
+  • Cupom `FIDELIDADE10`: 10% extra (bônus).
+8. Exibe o valor a pagar com duas casas decimais (exemplo: `R$ 144.00`).
+9. Guarda a compra na lista com `.append()`, no formato `(valor_bruto, valor_final)`.
+10. Volta ao passo 2 para a próxima compra.
+11. Ao sair do loop, percorre a lista com um `for`, soma os brutos e os finais, calcula o total de descontos (`total_bruto - total_final`) e mostra o resumo na tela.
+12. Abre o arquivo `resumo.txt` com `open("resumo.txt", "w")` e usa outro `for` na lista para gravar cada compra, seguida dos totais do dia.
 
 ## Como rodar
 
@@ -53,5 +59,3 @@ Total bruto:           R$ 1196.00
 Total de descontos:    R$ 178.50
 Total final:           R$ 1017.50
 ```
-
-o readme sera atualizado apos adicionar o bonus

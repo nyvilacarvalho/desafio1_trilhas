@@ -12,11 +12,20 @@ while True:
 
   if valor_compra == 0:
        break
-   #idade
+  #idade
   idade_cliente = int(input("Digite a idade do cliente: "))
   while idade_cliente < 0:
       print("Sua idade é invalida, tente novamente.")
       idade_cliente = int(input("Digite a idade do cliente: "))
+
+  #bonus quantidade de item
+  quantidade = int(input("Digite a quantidade de itens: "))
+  while quantidade < 1:
+        print("Aviso: a quantidade deve ser pelo menos 1. Tente novamente.")
+        quantidade = int(input("Digite a quantidade de itens: "))
+
+  #bonus cupom
+  cupom = input("Digite o cupom (ou Enter para pular): ").strip().upper()
 
   #aplicacao de desconto
   preco_final = valor_compra
@@ -26,13 +35,25 @@ while True:
   if preco_final > 100:
         preco_final = preco_final *(1 - (10 / 100))
 
+  #aplicacao do desconto bonus
+  if quantidade > 3:
+        preco_final = preco_final * (1 - (5 / 100))
+ 
+  #bonus cupom de fidelidade (10% extra)
+  if cupom == "FIDELIDADE10":
+        preco_final = preco_final * (1 - (10 / 100))
+        print("Cupom FIDELIDADE10 aplicado!")
+  elif cupom != "":
+        print("Cupom inválido, ignorado.")
+ 
+
   print(f"o valor a pagar é: R${preco_final}")
 
 
-    # Guarda no histórico
+  #quarda no histórico
   historico.append((valor_compra, preco_final))
 
-# Resumo do dia
+#resumo do dia
 total_bruto = 0
 total_final = 0
 for bruto, final in historico:
@@ -41,8 +62,27 @@ for bruto, final in historico:
 
 total_descontos = total_bruto - total_final
 
-print("\n=== RESUMO DO DIA ===")
+print("-----RESUMO DO DIA-----")
 print(f"Quantidade de compras: {len(historico)}")
 print(f"Total bruto:           R$ {total_bruto:.2f}")
 print(f"Total de descontos:    R$ {total_descontos:.2f}")
 print(f"Total final:           R$ {total_final:.2f}")
+
+
+
+#bonus salvar o resumo em resumo.txt
+arquivo = open("resumo.txt", "w", encoding="utf-8")
+arquivo.write("-----RESUMO DO DIA-----")
+arquivo.write("Compras:\n")
+numero = 1
+for bruto, final in historico:
+    arquivo.write(f"Compra {numero}: bruto R$ {bruto:.2f} -> final R$ {final:.2f}\n")
+    numero += 1
+arquivo.write("\n")
+arquivo.write(f"Quantidade de compras: {len(historico)}\n")
+arquivo.write(f"Total bruto:           R$ {total_bruto:.2f}\n")
+arquivo.write(f"Total de descontos:    R$ {total_descontos:.2f}\n")
+arquivo.write(f"Total final:           R$ {total_final:.2f}\n")
+arquivo.close()
+ 
+print("\nResumo salvo em resumo.txt")
